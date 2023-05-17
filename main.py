@@ -8,10 +8,8 @@ from scan import Scanner
 from openvas import Openvas
 from http_scan import HttpScanner
 
-
 connection = UnixSocketConnection()
 transform = EtreeTransform()
-
 
 
 def validate_input_file(filepath):
