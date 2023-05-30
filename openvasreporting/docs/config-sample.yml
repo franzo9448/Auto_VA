@@ -1,0 +1,27 @@
+level:
+  medium
+
+format:
+  xlsx
+
+reporttype:
+  host
+
+networks:
+  includes:
+    - 10.0.0.0/8
+    - 172.16.0.0/12
+    - 192.168.0.0/16
+  excludes:
+    - 172.16.168.234
+    - 172.16.168.236-172.16.168.239
+    - 172.20.16.120
+
+regex:
+  excludes:
+    - defender
+
+# I use this section to filter out recent ms patches not put in production yet. Or to filter in CVEs from the CISA Active Exploit bulletin
+cve:
+  excludes:
+    - CVE-2021-1971

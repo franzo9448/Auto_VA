@@ -34,21 +34,15 @@ class Scanner:
         self._hostname = hostname
 
     def parse_info(self, ip):
-        # recupero i dati di nmap
         data = self._output
-        # dato l'indirizzo ip recupero la lista delle porte aperte
         spec_data = data[ip]["ports"]
         ports = []
         http_ports = []
-        # nel range della lista itero
         for i in range(0, len(spec_data)):
             spec = spec_data[i]
-            # recupero il numero della porta aperta
             ports.append(spec["portid"])
-            # controllo i lservizio presente
             if spec["service"]["name"] == ("http" or "https"):
                 http_ports.append(spec["portid"])
-        # salvo nelle liste
         self._open_ports = ports
         self._http_ports = http_ports
 
@@ -59,4 +53,4 @@ class Scanner:
         return self._hostname
 
     def get_http_ports(self):
-        return self._open_ports
+        return self._http_ports
